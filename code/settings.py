@@ -72,7 +72,7 @@ monster_data = {
 		'health': 100,
 		'exp': 100,
 		'damage': 20,
-		'attack_type': 'splash',
+		'attack_type': 'slash',
 		'attack_sound': '../audio/attack/slash.wav',
 		'speed': 3,
 		'resistance': 3,
