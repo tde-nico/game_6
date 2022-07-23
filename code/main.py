@@ -4,7 +4,11 @@ from debug import debug
 from level import Level
 
 
-class Game: # 05 32 50
+# 5 56 25
+# 6 26 35
+# 7 24 26
+
+class Game:
 	def __init__(self):
 		pygame.init()
 		self.screen=pygame.display.set_mode((WIDTH,HEIGTH))
