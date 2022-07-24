@@ -1,4 +1,5 @@
 import pygame
+from magic import MagicPlayer
 from particles import AnimationPlayer
 from settings import *
 from tile import Tile
@@ -55,6 +56,7 @@ class Level:
 		self.ui = UI()
 
 		self.animation_player = AnimationPlayer()
+		self.magic_player = MagicPlayer(self.animation_player)
 	
 
 	def create_map(self):
@@ -122,7 +124,11 @@ class Level:
 
 
 	def create_magic(self, style, strength, cost):
-		pass
+		if style == 'heal':
+			self.magic_player.heal(
+				self.player, strength, cost, [self.visible_sprites])
+		elif style == 'flame':
+			self.magic_player.flame(self.player, cost, [self.visible_sprites, self.attack_sprites])
 
 
 	def destroy_attack(self):
