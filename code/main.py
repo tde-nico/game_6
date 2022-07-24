@@ -4,7 +4,6 @@ from debug import debug
 from level import Level
 
 
-# 5 56 25
 # 6 26 35
 # 7 24 26
 
