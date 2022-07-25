@@ -3,11 +3,10 @@ from settings import *
 from debug import debug
 from level import Level
 
-
 # 6 26 35
 # 7 24 26
 
-class Game:
+class Game: # 6 43 10
 	def __init__(self):
 		pygame.init()
 		self.screen=pygame.display.set_mode((WIDTH,HEIGTH))
@@ -22,14 +21,23 @@ class Game:
 				if event.type == pygame.QUIT:
 					pygame.quit()
 					sys.exit()
+				elif event.type == pygame.KEYDOWN:
+					if event.key == pygame.K_ESCAPE:
+						pygame.quit()
+						sys.exit()
+					elif event.key == pygame.K_m:
+						self.level.toggle_menu()
+					
 
 			self.screen.fill('black')
-			self.level.run()
+			if self.level.run():
+				break
 			pygame.display.update()
 			self.clock.tick(FPS)
 
 
 
 if __name__ == '__main__':
-	game = Game()
-	game.run()
+	while True:
+		game = Game()
+		game.run()
