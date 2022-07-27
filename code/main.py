@@ -1,17 +1,18 @@
 import pygame, sys
 from settings import *
-from debug import debug
 from level import Level
 
-# 7 24 26
 
-class Game: # 7 18
+class Game:
 	def __init__(self):
 		pygame.init()
 		self.screen=pygame.display.set_mode((WIDTH,HEIGTH))
 		self.clock=pygame.time.Clock()
 		pygame.display.set_caption('game_6')
 		self.level = Level()
+		main_sound = pygame.mixer.Sound('../audio/main.ogg')
+		main_sound.set_volume(0.5)
+		main_sound.play(loops = -1)
 
 
 	def run(self):
@@ -28,7 +29,7 @@ class Game: # 7 18
 						self.level.toggle_menu()
 					
 
-			self.screen.fill('black')
+			self.screen.fill(WATER_COLOR)
 			if self.level.run():
 				break
 			pygame.display.update()
